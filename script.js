@@ -15,8 +15,9 @@ let sChar = [
 ]
 
 function generatePassword () {
-  let finalPw = "";
+  let finalPw = [];
   pw = [];
+  console.log("pw = " + typeof pw);
 
   let pwLength = prompt("Choose password length, between 8 - 180:", "8");
   if (pwLength > 7 && pwLength < 181) {
@@ -27,30 +28,36 @@ function generatePassword () {
     alert("You didnt follow the rules. The length of your password will be 8 characters. If you would like to try again, finish going through the prompts, then reload the page.");
   }
   
-  let lowerCase = confirm("Characters: Would you like lowercase characters in your password? \nok = yes, cancel = no.");
+  let lowerCase = confirm("Would you like lowercase characters in your password? \nok = yes, cancel = no.");
   
   if (lowerCase === true) {
-      pw.push(lChar.join(""));
+      pw = pw.concat(lChar);
+      console.log("pw = " + pw);
+      // console.log("pwLower = " + pwLower);
     
     alert("Lowercase characters will be in the password.");
   } else {
     alert("Lowercase characters will not be in the password.");
   }
 
-  let upperCase = confirm("Characters: Would you like uppercase characters in your password? \nok = yes, cancel = no.");
+  let upperCase = confirm("Would you like uppercase characters in your password? \nok = yes, cancel = no.");
   
   if (upperCase === true) {
-      pw.push(uChar.join(""));
+      pw = pw.concat(uChar);
+      console.log("pw = " + pw);
+      // console.log("pwUpper = " + pwUpper);
     
     alert("Uppercase characters will be in the password.");
   } else {
     alert("Uppercase characters will not be in the password.");
   }
 
-  let numeric = confirm("Characters: Would you like numeric characters in your password? \nok = yes, cancel = no.");
+  let numeric = confirm("Would you like numeric characters in your password? \nok = yes, cancel = no.");
   
   if (numeric === true) {
-      pw.push(num.join(""));
+    pw = pw.concat(num);
+    console.log("pw = " + pw);
+    // console.log("pwNum = " + pwNum);
     
     alert("Numeric characters will be in the password.");
   } else {
@@ -59,13 +66,17 @@ function generatePassword () {
 
   if (lowerCase === false && upperCase === false && numeric === false) {
     alert("Your password will be strictly special characters.");
-      pw.push(sChar.join(""));
+    pw = pw.concat(sChar);
+    console.log("pw = " + pw);
+    // console.log("pwSpecial = " + pwSpecial);
     
   } else {
-    let specialChar = confirm("Characters: Would you like special characters in your password? \nok = yes, cancel = no.");
+    let specialChar = confirm("Would you like special characters in your password? \nok = yes, cancel = no.");
     
     if (specialChar === true) {
-        pw.push(sChar.join(""));
+      pw = pw.concat(sChar);
+      console.log("pw = " + pw);
+    // console.log("pwSpecial = " + pwSpecial);
       
       alert("Special characters will be in the password.");
     } else {
@@ -74,18 +85,15 @@ function generatePassword () {
   }
 
   
-  
   for (let i = 0; i < pwLength; i++) {
-    
-    
-    
+    console.log("pw = " + pw);
+
     let rand = pw[Math.floor(Math.random() * pw.length)];
-    
-    
-    finalPw += rand[Math.floor(Math.random() * pwLength)];
+    console.log("rand = " + rand);
+    finalPw.push(rand);
     
   }
-  return finalPw;
+  return finalPw.join("");
 }
 
 // Write password to the #password input
