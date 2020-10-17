@@ -23,8 +23,8 @@ function generatePassword () {
   let all = [];
 
   //get length of pw
-  let pwLength = prompt("Choose password length, between 8 - 180:", "8");
-  if (pwLength > 7 && pwLength < 181 && typeof pwLength === number) {
+  let pwLength = prompt("Choose password length, between 8 - 128:", "8");
+  if (pwLength > 7 && pwLength < 129 && isNaN("pwLength"/10)) {
     alert("You chose " + pwLength + " characters.");
   } else {
     pwLength = 8;
@@ -37,7 +37,8 @@ function generatePassword () {
   if (lowerCase === true) {
       pw = pw.concat(lChar);
       // all.push(a random lChar)
-    
+      all.push(lChar[Math.floor(Math.random() * lChar.length)]);
+      console.log(all);
     alert("Lowercase characters will be in the password.");
   } else {
     alert("Lowercase characters will not be in the password.");
@@ -48,6 +49,8 @@ function generatePassword () {
   if (upperCase === true) {
       pw = pw.concat(uChar);
       // all.push(a random uChar)
+      all.push(uChar[Math.floor(Math.random() * uChar.length)]);
+      console.log(all);
     
     alert("Uppercase characters will be in the password.");
   } else {
@@ -58,6 +61,8 @@ function generatePassword () {
   
   if (numeric === true) {
     pw = pw.concat(num);
+    all.push(num[Math.floor(Math.random() * num.length)]);
+    console.log(all);
     
     alert("Numeric characters will be in the password.");
   } else {
@@ -67,12 +72,16 @@ function generatePassword () {
   if (lowerCase === false && upperCase === false && numeric === false) {
     alert("Your password will be strictly special characters.");
     pw = pw.concat(sChar);
+    all.push(sChar[Math.floor(Math.random() * sChar.length)]);
+    console.log(all);
     
   } else {
     let specialChar = confirm("Would you like special characters in your password? \nok = yes, cancel = no.");
     
     if (specialChar === true) {
       pw = pw.concat(sChar);
+      all.push(sChar[Math.floor(Math.random() * sChar.length)]);
+      console.log(all);
       
       alert("Special characters will be in the password.");
     } else {
@@ -83,8 +92,8 @@ function generatePassword () {
   //push random characters from pw array into finalPw array
   // all = random assortment, one of each type of character guaranteed
   // set finalpassword = all
+  finalPw = finalPw.concat(all);
   for (let i = 0; i < (pwLength - all.length); i++) {
-
     let rand = pw[Math.floor(Math.random() * pw.length)];
     finalPw.push(rand);
   }
