@@ -23,7 +23,7 @@ function generatePassword () {
 
   //get length of pw
   let pwLength = prompt("Choose password length, between 8 - 180:", "8");
-  if (pwLength > 7 && pwLength < 181) {
+  if (pwLength > 7 && pwLength < 181 && typeof pwLength === number) {
     alert("You chose " + pwLength + " characters.");
   } else {
     pwLength = 8;
