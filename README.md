@@ -5,7 +5,7 @@ This here is a password generator. Its about generating passwords!
 Sometimes, folks just needs a randomly generated password for random sites. Who wants to sit and think of a password every time they sign up for something? I mean, come on!
  
 ## Screenshots
-![password generator screenshot](.\image\pwg.png)
+![password generator screenshot](./image/pwg.PNG)
 
 ## Features
 After the user answers a series of prompts, they will be given a randomly generated password based on their responses.
