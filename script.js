@@ -20,6 +20,7 @@ function generatePassword () {
   //create empty array to add random characters to
   let finalPw = [];
   pw = [];
+  let all = [];
 
   //get length of pw
   let pwLength = prompt("Choose password length, between 8 - 180:", "8");
@@ -35,6 +36,7 @@ function generatePassword () {
   
   if (lowerCase === true) {
       pw = pw.concat(lChar);
+      // all.push(a random lChar)
     
     alert("Lowercase characters will be in the password.");
   } else {
@@ -45,6 +47,7 @@ function generatePassword () {
   
   if (upperCase === true) {
       pw = pw.concat(uChar);
+      // all.push(a random uChar)
     
     alert("Uppercase characters will be in the password.");
   } else {
@@ -78,7 +81,10 @@ function generatePassword () {
   }
 
   //push random characters from pw array into finalPw array
-  for (let i = 0; i < pwLength; i++) {
+  // all = random assortment, one of each type of character guaranteed
+  // set finalpassword = all
+  for (let i = 0; i < (pwLength - all.length); i++) {
+
     let rand = pw[Math.floor(Math.random() * pw.length)];
     finalPw.push(rand);
   }
@@ -86,6 +92,7 @@ function generatePassword () {
   //return final pw array, turned into a string
   return finalPw.join("");
 }
+// [l U 0 # ------------]
 
 // Write password to the #password input
 function writePassword() {
